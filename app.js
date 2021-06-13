@@ -42,6 +42,7 @@ const listSchema = {
 
 const List = mongoose.model("List", listSchema);
 
+// input items
 
 app.get("/", function(req, res) {
 
@@ -62,6 +63,8 @@ app.get("/", function(req, res) {
   });
 
 });
+
+// Create new list
 
 app.get("/:customListName", function(req, res){
   const customListName = _.capitalize(req.params.customListName);
@@ -88,6 +91,8 @@ app.get("/:customListName", function(req, res){
 
 });
 
+// find
+
 app.post("/", function(req, res){
 
   const itemName = req.body.newItem;
@@ -109,6 +114,7 @@ app.post("/", function(req, res){
   }
 });
 
+//delete post
 app.post("/delete", function(req, res){
   const checkedItemId = req.body.checkbox;
   const listName = req.body.listName;
